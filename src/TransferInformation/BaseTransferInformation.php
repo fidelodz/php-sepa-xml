@@ -90,6 +90,124 @@ class BaseTransferInformation implements TransferInformationInterface
      */
     protected $creditorReference;
 
+	/**
+	 * Name of the department.
+	 *
+	 * Maximum allowed length is 70 characters.
+	 *
+	 * @var string|null
+	 */
+	protected $department;
+
+	/**
+	 * Name of the sub department.
+	 *
+	 * Maximum allowed length is 70 characters.
+	 *
+	 * @var string|null
+	 */
+	protected $subDepartment;
+
+	/**
+	 * Name of a street or thoroughfare.
+	 *
+	 * Maximum allowed length is 70 characters.
+	 *
+	 * @var string|null
+	 */
+	protected $streetName;
+
+	/**
+	 * Number that identifies the position of a building on a street.
+	 *
+	 * Maximum allowed length is 16 characters.
+	 *
+	 * @var string|null
+	 */
+	protected $buildingNumber;
+
+	/**
+	 * Name of the building.
+	 *
+	 * Maximum allowed length is 35 characters.
+	 *
+	 * @var string|null
+	 */
+	protected $buildingName;
+
+	/**
+	 * Floor of the building.
+	 *
+	 * Maximum allowed length is 70 characters.
+	 *
+	 * @var string|null
+	 */
+	protected $floor;
+
+	/**
+	 * Code of the post box.
+	 *
+	 * Maximum allowed length is 16 characters.
+	 *
+	 * @var string|null
+	 */
+	protected $postBox;
+
+	/**
+	 * Name or number of the room.
+	 *
+	 * Maximum allowed length is 70 characters.
+	 *
+	 * @var string|null
+	 */
+	protected $room;
+
+	/**
+	 * Identifier consisting of a group of letters and/or numbers that is added
+	 * to a postal address to assist the sorting of mail.
+	 *
+	 * Maximum allowed length is 16 characters.
+	 *
+	 * @var string|null
+	 */
+	protected $postCode;
+
+	/**
+	 * Name of a built-up area, with defined boundaries, and a local government.
+	 *
+	 * Maximum allowed length is 35 characters.
+	 *
+	 * @var string|null
+	 */
+	protected $townName;
+
+	/**
+	 * Name of the towns' location.
+	 *
+	 * Maximum allowed length is 35 characters.
+	 *
+	 * @var string|null
+	 */
+	protected $townLocationName;
+
+	/**
+	 * Name of the district.
+	 *
+	 * Maximum allowed length is 35 characters.
+	 *
+	 * @var string|null
+	 */
+	protected $districtName;
+
+	/**
+	 * Name of the country's subdivision.
+	 *
+	 * Maximum allowed length is 35 characters.
+	 *
+	 * @var string|null
+	 */
+	protected $countrySubDivision;
+
     /**
      * Nation with its own government.
      *
@@ -99,43 +217,6 @@ class BaseTransferInformation implements TransferInformationInterface
      * @var string|null
      */
     protected $country;
-
-    /**
-     * Name of a built-up area, with defined boundaries, and a local government.
-     *
-     * Maximum allowed length is 35 characters.
-     *
-     * @var string|null
-     */
-    protected $townName;
-
-    /**
-     * Identifier consisting of a group of letters and/or numbers that is added
-     * to a postal address to assist the sorting of mail.
-     *
-     * Maximum allowed length is 16 characters.
-     *
-     * @var string|null
-     */
-    protected $postCode;
-
-    /**
-     * Name of a street or thoroughfare.
-     *
-     * Maximum allowed length is 70 characters.
-     *
-     * @var string|null
-     */
-    protected $streetName;
-
-    /**
-     * Number that identifies the position of a building on a street.
-     *
-     * Maximum allowed length is 16 characters.
-     *
-     * @var string|null
-     */
-    protected $buildingNumber;
 
     /**
      * Information that locates and identifies a specific address, as defined
@@ -246,6 +327,190 @@ class BaseTransferInformation implements TransferInformationInterface
     {
         return $this->remittanceInformation;
     }
+
+	/*
+	 *  postal address elements
+	 */
+
+	/**
+	 * @return string|null
+	 */
+	public function getDepartment(): ?string
+	{
+		return $this->department;
+	}
+
+	/**
+	 * @param string|null $department
+	 */
+	public function setDepartment(?string $department): void
+	{
+		if (null === $department) {
+			$this->department = null;
+		} else {
+			$this->department = StringHelper::sanitizeString($department);
+		}
+	}
+
+	/**
+	 * @return string|null
+	 */
+	public function getSubDepartment(): ?string
+	{
+		return $this->subDepartment;
+	}
+
+	/**
+	 * @param string|null $subDepartment
+	 */
+	public function setSubDepartment(?string $subDepartment): void
+	{
+		if (null === $subDepartment) {
+			$this->subDepartment = null;
+		} else {
+			$this->subDepartment = StringHelper::sanitizeString($subDepartment);
+		}
+	}
+
+	/**
+	 * @return string|null
+	 */
+	public function getBuildingName(): ?string
+	{
+		return $this->buildingName;
+	}
+
+	/**
+	 * @param string|null $buildingName
+	 */
+	public function setBuildingName(?string $buildingName): void
+	{
+		if (null === $buildingName) {
+			$this->buildingName = null;
+		} else {
+			$this->buildingName = StringHelper::sanitizeString($buildingName);
+		}
+	}
+
+	/**
+	 * @return string|null
+	 */
+	public function getFloor(): ?string
+	{
+		return $this->floor;
+	}
+
+	/**
+	 * @param string|null $floor
+	 */
+	public function setFloor(?string $floor): void
+	{
+		if (null === $floor) {
+			$this->floor = null;
+		} else {
+			$this->floor = StringHelper::sanitizeString($floor);
+		}
+	}
+
+	/**
+	 * @return string|null
+	 */
+	public function getPostBox(): ?string
+	{
+		return $this->postBox;
+	}
+
+	/**
+	 * @param string|null $postBox
+	 */
+	public function setPostBox(?string $postBox): void
+	{
+		if (null === $postBox) {
+			$this->postBox = null;
+		} else {
+			$this->postBox = StringHelper::sanitizeString($postBox);
+		}
+	}
+
+	/**
+	 * @return string|null
+	 */
+	public function getRoom(): ?string
+	{
+		return $this->room;
+	}
+
+	/**
+	 * @param string|null $room
+	 */
+	public function setRoom(?string $room): void
+	{
+		if (null === $room) {
+			$this->room = null;
+		} else {
+			$this->room = StringHelper::sanitizeString($room);
+		}
+	}
+
+	/**
+	 * @return string|null
+	 */
+	public function getTownLocationName(): ?string
+	{
+		return $this->townLocationName;
+	}
+
+	/**
+	 * @param string|null $townLocationName
+	 */
+	public function setTownLocationName(?string $townLocationName): void
+	{
+		if (null === $townLocationName) {
+			$this->townLocationName = null;
+		} else {
+			$this->townLocationName = StringHelper::sanitizeString($townLocationName);
+		}
+	}
+
+	/**
+	 * @return string|null
+	 */
+	public function getDistrictName(): ?string
+	{
+		return $this->districtName;
+	}
+
+	/**
+	 * @param string|null $districtName
+	 */
+	public function setDistrictName(?string $districtName): void
+	{
+		if (null === $districtName) {
+			$this->districtName = null;
+		} else {
+			$this->districtName = StringHelper::sanitizeString($districtName);
+		}
+	}
+
+	/**
+	 * @return string|null
+	 */
+	public function getCountrySubDivision(): ?string
+	{
+		return $this->countrySubDivision;
+	}
+
+	/**
+	 * @param string|null $countrySubDivision
+	 */
+	public function setCountrySubDivision(?string $countrySubDivision): void
+	{
+		if (null === $countrySubDivision) {
+			$this->countrySubDivision = null;
+		} else {
+			$this->countrySubDivision = StringHelper::sanitizeString($countrySubDivision);
+		}
+	}
 
     public function getCountry(): ?string
     {
@@ -370,6 +635,63 @@ class BaseTransferInformation implements TransferInformationInterface
      */
     public function setPostalAddress($postalAddress): void
     {
-        $this->postalAddress = $postalAddress;
+		$this->postalAddress = [];
+
+		if(empty($postalAddress)){
+			return;
+		}
+
+		if (!is_array($postalAddress)) {
+			$postalAddress = array($postalAddress);
+		}
+
+		foreach ($postalAddress as $key => $value) {
+			switch ($key) {
+				case 'department':
+					$this->setDepartment($value);
+					break;
+				case 'subDepartment':
+					$this->setSubDepartment($value);
+				case 'streetName':
+					$this->setStreetName($value);
+					break;
+				case 'buildingNumber':
+					$this->setBuildingNumber($value);
+					break;
+				case 'buildingName':
+					$this->setBuildingName($value);
+					break;
+				case 'floor':
+					$this->setFloor($value);
+					break;
+				case 'postBox':
+					$this->setPostBox($value);
+					break;
+				case 'room':
+					$this->setRoom($value);
+					break;
+				case 'postCode':
+					$this->setPostCode($value);
+					break;
+				case 'townName':
+					$this->setTownName($value);
+					break;
+				case 'townLocationName':
+					$this->setTownLocationName($value);
+					break;
+				case 'districtName':
+					$this->setDistrictName($value);
+					break;
+				case 'countrySubDivision':
+					$this->setCountrySubDivision($value);
+					break;
+				case 'country':
+					$this->setCountry($value);
+					break;
+				default:
+					$this->postalAddress[] = $value;
+					break;
+			}
+		}
     }
 }

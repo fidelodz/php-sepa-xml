@@ -142,6 +142,38 @@ class CustomerDirectDebitFacade extends BaseCustomerTransferFileFacade
         if (isset($transferInformation['amendedDebtorAccount'])) {
             $transfer->setAmendedDebtorAccount((bool) $transferInformation['amendedDebtorAccount']);
         }
+
+		if (isset($transferInformation['department'])) {
+			$transfer->setDepartment($transferInformation['department']);
+		}
+
+		if (isset($transferInformation['subDepartment'])) {
+			$transfer->setSubDepartment($transferInformation['subDepartment']);
+		}
+
+		if (isset($transferInformation['floor'])) {
+			$transfer->setFloor($transferInformation['floor']);
+		}
+
+		if (isset($transferInformation['postBox'])) {
+			$transfer->setPostBox($transferInformation['postBox']);
+		}
+
+		if (isset($transferInformation['room'])) {
+			$transfer->setRoom($transferInformation['room']);
+		}
+
+		if (isset($transferInformation['townLocationName'])) {
+			$transfer->setTownLocationName($transferInformation['townLocationName']);
+		}
+
+		if (isset($transferInformation['districtName'])) {
+			$transfer->setDistrictName($transferInformation['districtName']);
+		}
+
+		if (isset($transferInformation['countrySubDivision'])) {
+			$transfer->setCountrySubDivision($transferInformation['countrySubDivision']);
+		}
         
         if (isset($transferInformation['postCode'])) {
             $transfer->setPostCode($transferInformation['postCode']);
@@ -155,16 +187,30 @@ class CustomerDirectDebitFacade extends BaseCustomerTransferFileFacade
             $transfer->setStreetName($transferInformation['streetName']);
         }
 
+		if (isset($transferInformation['buildingName'])) {
+			$transfer->setBuildingName($transferInformation['buildingName']);
+		}
+
         if (isset($transferInformation['buildingNumber'])) {
             $transfer->setBuildingNumber($transferInformation['buildingNumber']);
         }
 
-        if (isset($transferInformation['debtorCountry'])) {
-            $transfer->setCountry($transferInformation['debtorCountry']);
-        }
-        if (isset($transferInformation['debtorAdrLine'])) {
-            $transfer->setPostalAddress($transferInformation['debtorAdrLine']);
-        }
+		if (isset($transferInformation['country'])) {
+			$transfer->setCountry($transferInformation['country']);
+		}
+
+		if (isset($transferInformation['debtorCountry'])) {
+			$transfer->setCountry($transferInformation['debtorCountry']);
+		}
+
+		if (isset($transferInformation['addressLine'])) {
+			$transfer->setCountry($transferInformation['addressLine']);
+		}
+
+		if (isset($transferInformation['debtorAdrLine'])) {
+			$transfer->setPostalAddress($transferInformation['debtorAdrLine']);
+		}
+
         $this->payments[$paymentName]->addTransfer($transfer);
 
         return $transfer;
